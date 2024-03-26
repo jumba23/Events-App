@@ -1,5 +1,5 @@
 const EventsPage = () => {
-  return <div>Events Page</div>;
+  return <main>Events Page</main>;
 };
 
 export default EventsPage;
