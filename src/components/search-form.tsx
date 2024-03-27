@@ -1,13 +1,20 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const SearchForm = () => {
   const [searchText, setSearchText] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
+
+    if (!searchText) {
+      return;
+    }
+    router.push(`/events/${searchText}`);
   };
   return (
     <form onSubmit={handleSubmit} className="w-full sm:w-[580px]">
