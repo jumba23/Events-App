@@ -19,7 +19,9 @@ const Header = () => {
         <ul className="flex gap-x-6 text-sm">
           {routes.map((route) => (
             <li
-              className="text-white/50 hover:text-white transition"
+              className={`${
+                activePathname === route.path ? "text-white" : "text-white/50"
+              } hover:text-white transition`}
               key={route.path}
             >
               <Link href={route.path}>{route.name}</Link>
