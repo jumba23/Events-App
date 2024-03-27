@@ -6,7 +6,7 @@ const Header = () => {
     <header className="flex justify-between items-center border-b border-white/10 h-14 px-3 md:px-9">
       <Logo />
       <nav>
-        <ul>
+        <ul className="flex gap-x-6 text-sm">
           <li>
             <Link href="/events/austin">Austin</Link>
           </li>
