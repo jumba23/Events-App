@@ -4,6 +4,7 @@ import Link from "next/link";
 import Logo from "./logo";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { motion } from "framer-motion";
 
 const routes = [
   { name: "Home", path: "/" },
@@ -31,7 +32,10 @@ const Header = () => {
             >
               <Link href={route.path}>{route.name}</Link>
               {activePathname === route.path && (
-                <div className="bg-accent h-1 w-full absolute bottom-0"></div>
+                <motion.div
+                  layoutId="header-active-link"
+                  className="bg-accent h-1 w-full absolute bottom-0"
+                ></motion.div>
               )}
             </li>
           ))}
