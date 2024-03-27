@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main>
@@ -12,6 +14,14 @@ export default function Home() {
         />
         <button>Search</button>
       </form>
+
+      <section>
+        <p>Popular:</p>
+        <div>
+          <Link href="/events/austin"></Link>
+          <Link href="/events/seattle"></Link>
+        </div>
+      </section>
     </main>
   );
 }
