@@ -22,8 +22,6 @@ const Header = () => {
           ))}
         </ul>
       </nav>
-      <Link href="/">Home</Link>
-      <Link href="/events/all">All Events</Link>
     </header>
   );
 };
