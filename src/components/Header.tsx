@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Logo from "./logo";
 import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 const routes = [
   { name: "Home", path: "/" },
@@ -19,9 +20,10 @@ const Header = () => {
         <ul className="flex gap-x-6 text-sm">
           {routes.map((route) => (
             <li
-              className={`${
-                activePathname === route.path ? "text-white" : "text-white/50"
-              } hover:text-white transition`}
+              className={clsx(" hover:text-white transition", {
+                "text-white": activePathname === route.path,
+                "text-white/50": activePathname !== route.path,
+              })}
               key={route.path}
             >
               <Link href={route.path}>{route.name}</Link>
