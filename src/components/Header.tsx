@@ -30,8 +30,9 @@ const Header = () => {
               key={route.path}
             >
               <Link href={route.path}>{route.name}</Link>
-
-              <div className="bg-accent h-1 w-full absolute bottom-0"></div>
+              {activePathname === route.path && (
+                <div className="bg-accent h-1 w-full absolute bottom-0"></div>
+              )}
             </li>
           ))}
         </ul>
