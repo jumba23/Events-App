@@ -21,14 +21,13 @@ export default function Home() {
           placeholder="Enter your location"
           spellCheck={false}
         />
-        <button>Search</button>
       </form>
 
-      <section>
+      <section className="mt-4 flex gap-x-4 text-sm text-white/50">
         <p>Popular:</p>
-        <div>
-          <Link href="/events/austin"></Link>
-          <Link href="/events/seattle"></Link>
+        <div className="space-x-2 font-semibold">
+          <Link href="/events/austin">Austin</Link>
+          <Link href="/events/seattle">Seattle</Link>
         </div>
       </section>
     </main>
