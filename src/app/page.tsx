@@ -8,7 +8,7 @@ export default function Home() {
       </h1>
       <p className="mb-12 mt-7 text-2xl lg:text-3xl">
         Browse more than{" "}
-        <span className="font-bold italic underline text-[#a4f839]">
+        <span className="font-bold italic underline text-accent">
           {" "}
           10,000 events
         </span>{" "}
