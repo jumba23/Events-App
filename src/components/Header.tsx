@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "./logo";
+import { usePathname } from "next/navigation";
 
 const routes = [
   { name: "Home", path: "/" },
@@ -7,6 +10,8 @@ const routes = [
 ];
 
 const Header = () => {
+  const activePathname = usePathname();
+
   return (
     <header className="flex justify-between items-center border-b border-white/10 h-14 px-3 md:px-9">
       <Logo />
