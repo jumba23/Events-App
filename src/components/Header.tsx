@@ -16,17 +16,22 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center border-b border-white/10 h-14 px-3 md:px-9">
       <Logo />
-      <nav>
-        <ul className="flex gap-x-6 text-sm">
+      <nav className="h-full">
+        <ul className="flex gap-x-6 text-sm h-full">
           {routes.map((route) => (
             <li
-              className={clsx(" hover:text-white transition", {
-                "text-white": activePathname === route.path,
-                "text-white/50": activePathname !== route.path,
-              })}
+              className={clsx(
+                " hover:text-white relative transition flex items-center",
+                {
+                  "text-white": activePathname === route.path,
+                  "text-white/50": activePathname !== route.path,
+                }
+              )}
               key={route.path}
             >
               <Link href={route.path}>{route.name}</Link>
+
+              <div className="bg-accent h-1 w-full absolute bottom-0"></div>
             </li>
           ))}
         </ul>
