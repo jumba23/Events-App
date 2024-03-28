@@ -1,7 +1,9 @@
+import H1 from "@/components/h1";
+
 const EventsPage = () => {
   return (
     <main>
-      <h1>Events in Austin</h1>
+      <H1>Events in Austin</H1>
     </main>
   );
 };
