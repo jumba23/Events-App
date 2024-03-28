@@ -22,7 +22,11 @@ const EventCard = ({ event }: EventCardProps) => {
       </div>
 
       <section className="absolute flex flex-col left-[12px] top-[12px] h-[45px] bg-black/30 rounded-md">
-        <p className="text-xl font-bold">29</p>
+        <p className="text-xl font-bold -mb-[5px]">
+          {new Date(event.date).toLocaleDateString("en-US", {
+            day: "2-digit",
+          })}
+        </p>
         <p className="text-xs uppercase text-accent">Nov</p>
       </section>
     </section>
