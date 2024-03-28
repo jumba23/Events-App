@@ -7,7 +7,7 @@ type EventCardProps = {
 
 const EventCard = ({ event }: EventCardProps) => {
   return (
-    <section className="flex flex-col flex-1 basis-80 h-[380px] max-w-[500px] bg-white/[5%] rounded-xl overflow-hidden">
+    <section className="flex flex-col flex-1 basis-80 h-[380px] max-w-[500px] bg-white/[5%] rounded-xl overflow-hidden relative">
       <Image
         src={event.imageUrl}
         alt={event.name}
@@ -20,6 +20,11 @@ const EventCard = ({ event }: EventCardProps) => {
         <p className="italic text-white/75">By {event.organizerName}</p>
         <p className="text-sm text-white/50 mt-4">{event.location}</p>
       </div>
+
+      <section className="absolute flex flex-col left-[12px] top-[12px] h-[45px] bg-black/30 rounded-md">
+        <p className="text-xl font-bold">29</p>
+        <p className="text-xs uppercase text-accent">Nov</p>
+      </section>
     </section>
   );
 };
