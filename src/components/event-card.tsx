@@ -27,7 +27,11 @@ const EventCard = ({ event }: EventCardProps) => {
             day: "2-digit",
           })}
         </p>
-        <p className="text-xs uppercase text-accent">Nov</p>
+        <p className="text-xs uppercase text-accent">
+          {new Date(event.date).toLocaleDateString("en-US", {
+            month: "short",
+          })}
+        </p>
       </section>
     </section>
   );
