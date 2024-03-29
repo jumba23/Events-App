@@ -9,6 +9,14 @@ type Props = {
   };
 };
 
+// ==================================== FETCHING DATA ====================================
+
+// Even though we are fetching data in the page component in two places, React/Next.js will
+// no fetch twice because it will cache the data after the first fetch. This is called mimoization.
+// Mimimization is a technique used to cache the result of an expensive function call and return the
+
+// =======================================================================================
+
 // function that generates metadata for the page
 export const generateMetadata = async ({
   params,
