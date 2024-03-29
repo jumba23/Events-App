@@ -18,6 +18,7 @@ export async function sleep(ms: number) {
   });
 }
 
+// This function is used to fetch events from the API.
 export const getEvents = async (city: string) => {
   const response = await fetch(
     `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`,
@@ -33,4 +34,15 @@ export const getEvents = async (city: string) => {
   console.log("Events :", events);
 
   return events;
+};
+
+export const getEvent = async (slug: string) => {
+  const response = await fetch(
+    `https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
+  );
+
+  const event = await response.json();
+  console.log("Single Event :", event);
+
+  return event;
 };
