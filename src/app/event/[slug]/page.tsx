@@ -25,10 +25,10 @@ const EventPage = async ({ params }: EventPageProps) => {
           fill
           quality={50}
           sizes="(max-with: 1280) 100vw, 1280px"
-          className="object-cover blur-3xl"
+          className="object-cover blur-3xl z-0"
           priority
         />
-        <div>
+        <div className="z-1 relative">
           <Image
             src={event.imageUrl}
             alt={event.name}
