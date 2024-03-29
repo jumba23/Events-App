@@ -12,7 +12,7 @@ type Props = {
 };
 
 // function that generates metadata for the page
-export const generateMetadata = ({ params }: Props) => {
+export const generateMetadata = ({ params }: Props): Metadata => {
   const city = params.city;
   return {
     title: city === "all" ? "All Events" : `Events in ${capitalize(city)}`,

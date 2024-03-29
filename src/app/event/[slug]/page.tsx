@@ -1,5 +1,6 @@
 import H1 from "@/components/h1";
 import { capitalize } from "@/lib/utils";
+import { Metadata } from "next";
 import Image from "next/image";
 
 type Props = {
@@ -9,10 +10,19 @@ type Props = {
 };
 
 // function that generates metadata for the page
-export const generateMetadata = ({ params }: Props) => {
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
   const slug = params.slug;
+
+  const response = await fetch(
+    `https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
+  );
+
+  const event = await response.json();
+
   return {
-    title: slug === "all" ? "All Events" : `Events in ${capitalize(slug)}`,
+    title: event.name,
   };
 };
 
