@@ -1,5 +1,11 @@
+import SkeletonCard from "@/components/skeleton-card";
+
 const Loading = () => {
-  return <div>Loading page...</div>;
+  return (
+    <div>
+      <SkeletonCard />
+    </div>
+  );
 };
 
 export default Loading;
