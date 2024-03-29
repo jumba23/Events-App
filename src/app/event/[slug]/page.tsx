@@ -60,15 +60,15 @@ const EventPage = async ({ params }: EventPageProps) => {
         </div>
       </section>
 
-      <div className="text-center px-5 py-16">
-        <section>
-          <h2 className="text-2xl">About this event</h2>
+      <div className="text-center px-5 py-16 min-h-[75vh]">
+        <section className="mb-12">
+          <h2 className="text-2xl mb-8">About this event</h2>
           <p className="max-w-4xl mx-auto text-lg leading-8 text-white/75">
             {event.description}
           </p>
         </section>
         <section>
-          <h2 className="text-2xl">Location</h2>
+          <h2 className="text-2xl mb-8">Location</h2>
           <p className="max-w-4xl mx-auto text-lg leading-8 text-white/75">
             {event.location}
           </p>
