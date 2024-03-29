@@ -2,14 +2,23 @@ import EventsList from "@/components/events-list";
 import H1 from "@/components/h1";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { Metadata } from "next";
 
-type EventsPageProps = {
+type Props = {
   params: {
     city: string;
   };
 };
 
-const EventsPage = async ({ params }: EventsPageProps) => {
+// function that generates metadata for the page
+export const generateMetadata = ({ params }: Props) => {
+  const city = params.city;
+  return {
+    title: city === "all" ? "All Events" : `Events in ${city}`,
+  };
+};
+
+const EventsPage = async ({ params }: Props) => {
   const city = params.city;
 
   return (
