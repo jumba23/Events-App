@@ -9,7 +9,13 @@ type EventsListProps = {
 const EventsList = async ({ city }: EventsListProps) => {
   // await sleep(2000);
   const response = await fetch(
-    `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`
+    `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`,
+    {
+      // This option allows the browser to cache the response for 5 minutes.
+      next: {
+        revalidate: 300,
+      },
+    }
   );
 
   const events: EventoEvent[] = await response.json();
