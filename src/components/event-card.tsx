@@ -31,7 +31,13 @@ const EventCard = ({ event }: EventCardProps) => {
       className="flex-1 basis-80 h-[380px] max-w-[500px]"
       href={`/event/${event.slug}`}
       // Framer-motion props
-      style={{ scale: scaleProgress, opacity: opacityProgress }}
+      style={{
+        //@ts-ignore
+        scale: scaleProgress,
+        //@ts-ignore
+        opacity: opacityProgress,
+      }}
+      initial={{ scale: 0.8, opacity: 0 }}
     >
       <section className="w-full h-full flex flex-col flex-1 basis-80  max-w-[500px] bg-white/[5%] rounded-xl overflow-hidden relative state-effects">
         <Image
