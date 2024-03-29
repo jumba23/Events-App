@@ -60,7 +60,7 @@ const EventPage = async ({ params }: EventPageProps) => {
         </div>
       </section>
 
-      <div className="text-center px-5 py-16 min-h-[75vh]">
+      <div className="text-center px-5 py-10 min-h-[75vh]">
         <Section>
           <SectionHeading>About this event</SectionHeading>
           <SectionContent>{event.description}</SectionContent>
@@ -87,5 +87,9 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => {
 };
 
 const SectionContent = ({ children }: { children: React.ReactNode }) => {
-  return <h3 className="text-xl mb-4">{children}</h3>;
+  return (
+    <h3 className="max-w-4xl mx-auto text-lg leading-8 text-white/75">
+      {children}
+    </h3>
+  );
 };
