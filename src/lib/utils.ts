@@ -1,5 +1,6 @@
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { EventoEvent } from "./types";
 
 // This function is used to merge Tailwind CSS classes with the clsx utility.
 export const cn = (...inputs: ClassValue[]) => {
@@ -16,3 +17,20 @@ export async function sleep(ms: number) {
     setTimeout(resolve, ms);
   });
 }
+
+export const getEvents = async (city: string) => {
+  const response = await fetch(
+    `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`,
+    {
+      // This option allows the browser to cache the response for 5 minutes.
+      // next: {
+      //   revalidate: 300,
+      // },
+    }
+  );
+
+  const events: EventoEvent[] = await response.json();
+  console.log("Events :", events);
+
+  return events;
+};
