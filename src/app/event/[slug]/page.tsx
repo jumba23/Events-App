@@ -1,13 +1,22 @@
 import H1 from "@/components/h1";
+import { capitalize } from "@/lib/utils";
 import Image from "next/image";
 
-type EventPageProps = {
+type Props = {
   params: {
     slug: string;
   };
 };
 
-const EventPage = async ({ params }: EventPageProps) => {
+// function that generates metadata for the page
+export const generateMetadata = ({ params }: Props) => {
+  const slug = params.slug;
+  return {
+    title: slug === "all" ? "All Events" : `Events in ${capitalize(slug)}`,
+  };
+};
+
+const EventPage = async ({ params }: Props) => {
   const slug = params.slug;
 
   const response = await fetch(
