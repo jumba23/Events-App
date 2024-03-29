@@ -61,21 +61,31 @@ const EventPage = async ({ params }: EventPageProps) => {
       </section>
 
       <div className="text-center px-5 py-16 min-h-[75vh]">
-        <section className="mb-12">
-          <h2 className="text-2xl mb-8">About this event</h2>
-          <p className="max-w-4xl mx-auto text-lg leading-8 text-white/75">
-            {event.description}
-          </p>
-        </section>
-        <section>
-          <h2 className="text-2xl mb-8">Location</h2>
-          <p className="max-w-4xl mx-auto text-lg leading-8 text-white/75">
-            {event.location}
-          </p>
-        </section>
+        <Section>
+          <SectionHeading>About this event</SectionHeading>
+          <SectionContent>{event.description}</SectionContent>
+        </Section>
+        <Section>
+          <SectionHeading>Location</SectionHeading>
+          <SectionContent>{event.location}</SectionContent>
+        </Section>
       </div>
     </main>
   );
 };
 
 export default EventPage;
+
+// utility components
+
+const Section = ({ children }: { children: React.ReactNode }) => {
+  return <section className="mb-12">{children}</section>;
+};
+
+const SectionHeading = ({ children }: { children: React.ReactNode }) => {
+  return <h2 className="text-2xl mb-8">{children}</h2>;
+};
+
+const SectionContent = ({ children }: { children: React.ReactNode }) => {
+  return <h3 className="text-xl mb-4">{children}</h3>;
+};
