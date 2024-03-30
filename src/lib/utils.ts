@@ -1,6 +1,6 @@
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { EventoEvent } from "./types";
+import { EventoEvent } from "@prisma/client";
 
 // This function is used to merge Tailwind CSS classes with the clsx utility.
 export const cn = (...inputs: ClassValue[]) => {
@@ -41,7 +41,7 @@ export const getEvent = async (slug: string) => {
     `https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
   );
 
-  const event = await response.json();
+  const event: EventoEvent = await response.json();
   console.log("Single Event :", event);
 
   return event;
