@@ -39,6 +39,9 @@ export const getEvents = async (city: string) => {
     where: {
       city: city === "all" ? undefined : capitalize(city),
     },
+    orderBy: {
+      date: "asc",
+    },
   });
 
   return events;
