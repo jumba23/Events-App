@@ -48,11 +48,16 @@ export const getEvents = async (city: string, page = 1) => {
     skip: (page - 1) * 6,
   });
 
-  const totalCount = await prisma.eventoEvent.count({
-    where: {
-      city: capitalize(city),
-    },
-  });
+  let totalCount;
+  if (city === "all") {
+    totalCount = await prisma.eventoEvent.count();
+  } else {
+    totalCount = await prisma.eventoEvent.count({
+      where: {
+        city: capitalize(city),
+      },
+    });
+  }
 
   return {
     events,
