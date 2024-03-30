@@ -11,6 +11,9 @@ type Props = {
   };
 };
 
+type EventsPropsPage = Props & {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 // function that generates metadata for the page
 export const generateMetadata = ({ params }: Props): Metadata => {
   const city = params.city;
@@ -19,8 +22,9 @@ export const generateMetadata = ({ params }: Props): Metadata => {
   };
 };
 
-const EventsPage = async ({ params }: Props) => {
+const EventsPage = async ({ params, searchParams }: EventsPropsPage) => {
   const city = params.city;
+  const page = searchParams.page || 1;
 
   return (
     <main className="flex flex-col items-center py-24 px-[20px] min-h-[110vh]">
@@ -30,7 +34,7 @@ const EventsPage = async ({ params }: Props) => {
       </H1>
 
       <Suspense fallback={<Loading />}>
-        <EventsList city={city} />
+        <EventsList city={city} page={+page} />
       </Suspense>
     </main>
   );

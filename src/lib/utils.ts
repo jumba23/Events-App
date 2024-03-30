@@ -1,6 +1,8 @@
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import prisma from "./db";
+import Notfound from "@/app/not-found";
+import { notFound } from "next/navigation";
 
 // This function is used to merge Tailwind CSS classes with the clsx utility.
 export const cn = (...inputs: ClassValue[]) => {
@@ -19,7 +21,7 @@ export async function sleep(ms: number) {
 }
 
 // This function is used to fetch events from the API.
-export const getEvents = async (city: string) => {
+export const getEvents = async (city: string, page = 1) => {
   //PREVIOUSLY FETCHING DATA FROM API
   // const response = await fetch(
   //   `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`,
@@ -42,6 +44,8 @@ export const getEvents = async (city: string) => {
     orderBy: {
       date: "asc",
     },
+    take: 6,
+    skip: (page - 1) * 6,
   });
 
   return events;
@@ -62,6 +66,10 @@ export const getEvent = async (slug: string) => {
       slug: slug,
     },
   });
+
+  if (!event) {
+    return notFound();
+  }
 
   return event;
 };
