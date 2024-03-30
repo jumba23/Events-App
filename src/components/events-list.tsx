@@ -9,10 +9,11 @@ type EventsListProps = {
 
 const EventsList = async ({ city, page }: EventsListProps) => {
   // await sleep(2000);
-  const events = await getEvents(city, page);
+  const { events, totalCount } = await getEvents(city, page);
 
-  const previousPath = `/events/${city}?page=${page - 1}`;
-  const nextPath = `/events/${city}?page=${page + 1}`;
+  const previousPath = page > 1 ? `/events/${city}?page=${page - 1}` : "";
+  const nextPath =
+    totalCount > 6 * page ? `/events/${city}?page=${page + 1}` : "";
 
   return (
     <section className="max-w-[1100px] flex flex-wrap gap-10 justify-center px-[20px]">
