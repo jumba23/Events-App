@@ -1,8 +1,6 @@
 import clsx, { ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { EventoEvent, Prisma, PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "./db";
 
 // This function is used to merge Tailwind CSS classes with the clsx utility.
 export const cn = (...inputs: ClassValue[]) => {
@@ -39,7 +37,7 @@ export const getEvents = async (city: string) => {
   // NOW FETCHING DATA FROM DATABASE
   const events = await prisma.eventoEvent.findMany({
     where: {
-      city: capitalize(city),
+      city: city === "all" ? undefined : capitalize(city),
     },
   });
 
