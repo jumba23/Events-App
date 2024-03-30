@@ -14,11 +14,11 @@ export const capitalize = (string: string) => {
 };
 
 // This function is used to pause the execution of the program for a specified amount of time.
-export async function sleep(ms: number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
+// export async function sleep(ms: number) {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, ms);
+//   });
+// }
 
 // This function is used to fetch events from the API.
 export const getEvents = async (city: string, page = 1) => {

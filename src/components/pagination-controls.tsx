@@ -15,10 +15,14 @@ const PaginationControls = ({
 }: PaginationControlsProps) => {
   return (
     <section className="flex justify-between w-full">
-      <Link href={previousPath} className={btnStyles}>
-        <ArrowLeftIcon />
-        Previous
-      </Link>
+      {previousPath ? (
+        <Link href={previousPath} className={btnStyles}>
+          <ArrowLeftIcon />
+          Previous
+        </Link>
+      ) : (
+        <div></div>
+      )}
       <Link href={nextPath} className={btnStyles}>
         Next
         <ArrowRightIcon />
