@@ -1,5 +1,5 @@
-// This function is used to fetch events from the API.
-
+// server-only is a special import that tells Vercel to only include this module in the server bundle.
+import "server-only";
 import { unstable_cache } from "next/cache";
 import { notFound } from "next/navigation";
 import prisma from "./db";
