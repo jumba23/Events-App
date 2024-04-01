@@ -1,4 +1,5 @@
-/** @type {import('next').NextConfig} */
+const path = require("path");
+
 const nextConfig = {
   // output: "export", - for static site generation ONLY
   images: {
@@ -12,6 +13,10 @@ const nextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+  },
+  webpack(config) {
+    config.resolve.alias["@"] = path.join(__dirname, "src");
+    return config;
   },
 };
 
