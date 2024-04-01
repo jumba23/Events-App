@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge";
 import prisma from "./db";
 import Notfound from "@/app/not-found";
 import { notFound } from "next/navigation";
+import { unstable_cache } from "next/cache";
 
 // This function is used to merge Tailwind CSS classes with the clsx utility.
 export const cn = (...inputs: ClassValue[]) => {
@@ -21,7 +22,8 @@ export const capitalize = (string: string) => {
 // }
 
 // This function is used to fetch events from the API.
-export const getEvents = async (city: string, page = 1) => {
+// unstable_cache is next/cache's function that allows you to cache the response for a specified amount of time.
+export const getEvents = unstable_cache(async (city: string, page = 1) => {
   //PREVIOUSLY FETCHING DATA FROM API
   // const response = await fetch(
   //   `https://bytegrad.com/course-assets/projects/evento/api/events?city=${city}`,
@@ -63,9 +65,9 @@ export const getEvents = async (city: string, page = 1) => {
     events,
     totalCount,
   };
-};
+});
 
-export const getEvent = async (slug: string) => {
+export const getEvent = unstable_cache(async (slug: string) => {
   //PREVIOUSLY FETCHING DATA FROM API
   // const response = await fetch(
   //   `https://bytegrad.com/course-assets/projects/evento/api/events/${slug}`
@@ -86,4 +88,4 @@ export const getEvent = async (slug: string) => {
   }
 
   return event;
-};
+});
