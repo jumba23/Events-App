@@ -31,6 +31,18 @@ export const generateMetadata = async ({
   };
 };
 
+export const generateStaticParams = async () => {
+  // top 100 most popular events
+  return [
+    {
+      slug: "comedy-extravaganza",
+    },
+    {
+      slug: "dj-practice-session",
+    },
+  ];
+};
+
 const EventPage = async ({ params }: Props) => {
   const slug = params.slug;
 
